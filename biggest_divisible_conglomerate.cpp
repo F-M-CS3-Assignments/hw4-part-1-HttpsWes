@@ -35,8 +35,7 @@ vector<int> findLargestConglomerate(vector<int>& values, vector<int> current) {
             vector<int> result = findLargestConglomerate(remainingValues, UpdatedLargestConglomerate); // Start the next value after the current and keep updating it
 
             if (result.size() > largestConglomerate.size()) { // Check if the result is bigger than our best conglomerate; if so, assign it as the final result
-                largestConglomerate = result; // FIXED: This was incorrectly assigning `UpdatedLargestConglomerate` instead of updating the best found result
-            }
+                largestConglomerate = result; //final list with largetest conglomerate
         }
     }
     return largestConglomerate;

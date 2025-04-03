@@ -25,7 +25,7 @@ vector<int> findLargestConglomerate(vector<int>& values, vector<int> current) {
 
     vector<int> largestConglomerate = current; // Set the current conglomerate as the largest for tracking purposes
     for (size_t i = 0; i < values.size(); i++) { // Iterate through the list and check if they can be added.
-    //  If so, make a new list adding the new current value
+        // If so, make a new list adding the new current value
         if (CanBecomeAdded(values[i], current)) {
             vector<int> UpdatedLargestConglomerate = current;
             UpdatedLargestConglomerate.push_back(values[i]);
@@ -35,7 +35,8 @@ vector<int> findLargestConglomerate(vector<int>& values, vector<int> current) {
             vector<int> result = findLargestConglomerate(remainingValues, UpdatedLargestConglomerate); // Start the next value after the current and keep updating it
 
             if (result.size() > largestConglomerate.size()) { // Check if the result is bigger than our best conglomerate; if so, assign it as the final result
-                largestConglomerate = result; //final list with largetest conglomerate
+                largestConglomerate = result; // Final list with largest conglomerate
+            }
         }
     }
     return largestConglomerate;
@@ -43,7 +44,6 @@ vector<int> findLargestConglomerate(vector<int>& values, vector<int> current) {
 
 // This function finds the biggest divisible conglomerate in the given input vector.
 vector<int> biggest_divisible_conglomerate(vector<int> input) {
-    sort(input.rbegin(), input.rend()); // Sort descending for better performance
     vector<int> current;
     return findLargestConglomerate(input, current);
 }
